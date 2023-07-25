@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id String @id @default(cuid())
+  username String
+  email String
+  password String
+  name String?
+  bio String?
+  avatar String
+  isDeactivated Boolean @default(false)
+  products Product[]
+  orders Order[]
+  comments Comment[]
+}
+
+model Category {
+  id String @id @default(cuid())
+  name String
+}
+
+model Product {
+  id String @id @default(cuid())
+  name String
+  slug String
+  shortDescription String
+  overview String
+  featuredImage String
+  productImages String
+  downloadableFile String
+  authorId String
+  author User @relation(references: [id], fields: [authorId])
+  isDeleted Boolean @default(false)
+  orders Order[]
+  comments Comment[]
+}
+
+model Order {
+  id String @id @default(cuid())
+  productId String
+  product Product @relation(references: [id], fields: [productId])
+  userId String
+  user User @relation(references: [id], fields: [userId])
+}
+
+model Comment {
+  id String @id @default(cuid())
+  body String
+  userId String
+  user User @relation(references: [id], fields: [userId])
+  productId String
+  product Product @relation(references: [id], fields: [productId])
+}
