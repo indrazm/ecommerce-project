@@ -1,9 +1,11 @@
 generator client {
   provider = "prisma-client-js"
 }
+
 datasource db {
-  provider = "sqlite"
-  url = "file:./dev.db"
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
@@ -13,7 +15,7 @@ model User {
   password String
   name String?
   bio String?
-  avatar String
+  avatar String?
   isDeactivated Boolean @default(false)
   products Product[]
   orders Order[]
@@ -39,6 +41,8 @@ model Product {
   isDeleted Boolean @default(false)
   orders Order[]
   comments Comment[]
+
+  @@index([authorId])
 }
 
 model Order {
@@ -47,6 +51,9 @@ model Order {
   product Product @relation(references: [id], fields: [productId])
   userId String
   user User @relation(references: [id], fields: [userId])
+
+  @@index([productId])
+  @@index([userId])
 }
 
 model Comment {
@@ -56,4 +63,7 @@ model Comment {
   user User @relation(references: [id], fields: [userId])
   productId String
   product Product @relation(references: [id], fields: [productId])
+
+   @@index([productId])
+  @@index([userId])
 }

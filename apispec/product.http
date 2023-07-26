@@ -1,0 +1,24 @@
+### GET ALL PRODUCT
+GET http://localhost:3000/api/v1/product
+
+### GET SINGLE PRODUCT BY SLUG
+GET http://localhost:3000/api/v1/product?slug=product-slug
+
+### GET SINGLE PRODUCT
+GET http://localhost:3000/api/v1/product/clkjsal3a0003rcwkwyjwhlnj
+
+### CREATE PRODUCT
+POST http://localhost:3000/api/v1/product
+Content-Type: application/json
+
+{
+    "name": "Product name",
+    "slug": "product-slug",
+    "shortDescription": "Short Description",
+    "overview": "Overview",
+    "featuredImage": "Featured Image",
+    "productImages": "Product Images",
+    "downloadableFile": "",
+    "authorId": "clkjr3jop0000rc4aoyerk233"
+}
+

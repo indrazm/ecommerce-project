@@ -1,0 +1,19 @@
+### GET ALL COMMENT
+GET http://localhost:3000/api/v1/comment
+
+### GET All COMMENT BY PRODUCT ID
+GET http://localhost:3000/api/v1/comment?productid=clkjsal3a0003rcwkwyjwhlnj
+
+### GET SINGLE COMMENT
+GET http://localhost:3000/api/v1/comment/clkjsnpuo0007rcwklamfr4cf
+
+### CREATE COMMENT
+POST http://localhost:3000/api/v1/comment
+Content-Type: application/json
+
+{
+    "body": "Wow its soo goooood!",
+    "productId": "clkjsal3a0003rcwkwyjwhlnj",
+    "userId": "clkjr3jop0000rc4aoyerk233"
+}
+

@@ -1,0 +1,21 @@
+### GET ALL CATEGORY
+GET http://localhost:3000/api/v1/category
+
+### GET SINGLE CATEGORY
+GET http://localhost:3000/api/v1/category/clkjrqek20003rc4aq2krb925
+
+### CREATE CATEGORY
+POST http://localhost:3000/api/v1/category
+Content-Type: application/json
+
+{
+    "name": "UI KIT"
+}
+
+### UPDATE CATEGORY
+POST http://localhost:3000/api/v1/category/clkjrqek20003rc4aq2krb925
+Content-Type: application/json
+
+{
+    "name": "UI Kit"
+}
