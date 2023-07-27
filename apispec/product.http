@@ -15,6 +15,7 @@ Content-Type: application/json
     "name": "Product name",
     "slug": "product-slug",
     "shortDescription": "Short Description",
+    "categoryId": "CategoryId",
     "overview": "Overview",
     "featuredImage": "Featured Image",
     "productImages": "Product Images",

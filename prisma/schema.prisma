@@ -25,6 +25,7 @@ model User {
 model Category {
   id String @id @default(cuid())
   name String
+  products Product[]
 }
 
 model Product {
@@ -35,6 +36,8 @@ model Product {
   overview String
   featuredImage String
   productImages String
+  categoryId String @default("clkjrq5zy0002rc4av09udnyx")
+  category Category @relation(references: [id], fields: [categoryId])
   downloadableFile String
   authorId String
   author User @relation(references: [id], fields: [authorId])
@@ -43,6 +46,7 @@ model Product {
   comments Comment[]
 
   @@index([authorId])
+  @@index([categoryId])
 }
 
 model Order {

@@ -6,6 +6,18 @@
    input {
       @apply block w-full input input-bordered placeholder:text-zinc-700;
    }
+   input[type="file"] {
+      @apply file-input file-input-bordered;
+   }
+   select {
+      @apply block w-full select select-bordered;
+   }
+   textarea {
+      @apply block w-full textarea textarea-bordered placeholder:text-zinc-700 resize-none;
+   }
+   label {
+      @apply block w-full label label-text;
+   }
    button {
       @apply block w-full btn btn-primary disabled:btn-disabled;
    }
