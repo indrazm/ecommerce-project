@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  input {
-    @apply block w-full input input-bordered;
-  }
-  button {
-    @apply block w-full btn btn-primary;
-  }
-  h1 {
-    @apply font-bold text-2xl;
-  }
+   input {
+      @apply block w-full input input-bordered placeholder:text-zinc-700;
+   }
+   button {
+      @apply block w-full btn btn-primary disabled:btn-disabled;
+   }
+   h1 {
+      @apply font-bold text-2xl;
+   }
 }
